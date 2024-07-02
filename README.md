@@ -18,5 +18,14 @@ Currently supported file types:
   - logarithmic scaling maximum value
   - float32 "images" supported by rest of the chain
 
+# Requirements
+
+- numpy
+
+# Logarithmic scaling mathematics
+
+$$ Log(E+1) = L x , x = pixel value from 0 to 1$$
+$$ Log(2 TeV + 1) = L$$
+
 # Code ownership
 This code is work done for [Muon-Solutions Oy]{https://muon-solutions.com}. The company owns all rights to the code and has agreed to publish it under GPL-3 license.
