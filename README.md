@@ -26,7 +26,7 @@ Currently supported file types:
 
 $$ \log(E+1) = L x , x = \textrm{pixel value from } 0\textrm{ to }1$$
 
-$$ \log(2\textrm{ TeV} + 1) = L$$
+$$ \log(\textrm{Maximum muon momentum } + 1) = L$$
 
 # Code ownership
 This code is work done for [Muon-Solutions Oy]{https://muon-solutions.com}. The company owns all rights to the code and has agreed to publish it under GPL-3 license.
