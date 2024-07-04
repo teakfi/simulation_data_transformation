@@ -27,10 +27,14 @@ class Options():
         parser.add_argument('--maxMove', type=float, default=20, help='how much muons are moved randomly before scaling and pixelization (cm)')
 
         # output
+        parser.add_argument('--max_events', type=int, help='maximum number of events created')
         parser.add_argument('--max_event_size', type=int, default=50, help='maximum number of muons in a single event')
         parser.add_argument('--random_size', dest='random_size', action='store_true', help='Random event size') # random event size
         parser.add_argument('--output', type=str, default='hdf5', choices=['tiff','hdf5'],help='Output format [tiff | hdf5]')
         parser.add_argument('--out_dir', required=True, help='output directory')
+        parser.add_argument('--test_split', type=int, default=10, choices=range(0,21), help='percentage of test data, max 20')
+        parser.add_argument('--valid_split', type=int, default=10, choices=range(0,21), help='percentage of validation data, max 20')
+        parser.add_argument('--run_name', type=str, required=True, help='output name')
 
         self.initialized = True
 

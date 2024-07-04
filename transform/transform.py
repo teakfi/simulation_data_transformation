@@ -12,6 +12,7 @@ class Transform():
         self.energyscaling = ftl(opt)
         self.eventsize = opt.max_event_size
         self.randomsize = opt.random_size
+        self.maxevents = opt.max_events
 
     def Eventize(self, muons):
         """Divide muons to events"""
@@ -28,6 +29,9 @@ class Transform():
             event.append(data)
             if count==hits_in_event:
                 events.append(event)
+                if len(events) == self.maxevents:
+                    return events
+                
                 event = []
                 count = 0
                 if self.randomsize:
@@ -74,6 +78,7 @@ class Transform():
     
     def Run(self, muons):
         events = self.Eventize(muons)
+
 
         pixeled = []
 

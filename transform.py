@@ -15,14 +15,18 @@ This script is for running the transformation with optional arguments:
 from options.options import Options
 from datareader.reader import DataReader
 from transform.transform import Transform
+from writer.writer import Writer
 
 if __name__ == '__main__':
     opt = Options().parse()
     muons = DataReader().read_data(opt)
     transformer = Transform(opt)
 
-    tranformed = transformer.Run(muons)
+    transformed = transformer.Run(muons)
 
-    
+    opt.eventcount = len(transformed)
+
+    writer = Writer(opt)
+    writer.Write(transformed)
 
     print("tested")
