@@ -51,7 +51,7 @@ class Transform():
             try:
                 posin,posout = self.pixelize.toPixel(posin,posout)
             except RuntimeWarning:
-                muonevent = [0,posin[0],posin[1],posout[0],posout[1],muon[4]]
+                continue
             else:
                 if muon[3] < -49:
                     muonevent = [muon[0],posin[0],posin[1],posout[0],posout[1],muon[4]]
