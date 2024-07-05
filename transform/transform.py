@@ -47,17 +47,16 @@ class Transform():
 
         shiftedmuons = []
         for muon in event:
-            if muon[3] == -50:
-                posin,posout = self.pixelize.randomPosMove((0,0),(muon[1],muon[2]))
-                try:
-                    posin,posout = self.pixelize.toPixel(posin,posout)
-                except RuntimeWarning:
-                    muonevent = [0,posin[0],posin[1],posout[0],posout[1],muon[4]]
-                else:
-                    muonevent = [muon[0],posin[0],posin[1],posout[0],posout[1],muon[4]]
-
-            else:
+            posin,posout = self.pixelize.randomPosMove((0,0),(muon[1],muon[2]))
+            try:
+                posin,posout = self.pixelize.toPixel(posin,posout)
+            except RuntimeWarning:
                 muonevent = [0,posin[0],posin[1],posout[0],posout[1],muon[4]]
+            else:
+                if muon[3] < -49:
+                    muonevent = [muon[0],posin[0],posin[1],posout[0],posout[1],muon[4]]
+                else:
+                    muonevent = [0,posin[0],posin[1],posout[0],posout[1],muon[4]]
 
             shiftedmuons.append(muonevent)
 
